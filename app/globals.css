@@ -1,26 +1,205 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Neon/Dude Hybrid Palette: Pink, Blue, & Dark Wood */
+  --background: oklch(0.12 0.02 280);
+  /* Deep Purple-ish Dark */
+  --foreground: oklch(0.98 0.01 280);
+  --card: oklch(0.15 0.03 280);
+  --card-foreground: oklch(0.98 0.01 280);
+  --popover: oklch(0.12 0.02 280);
+  --popover-foreground: oklch(0.98 0.01 280);
+  --primary: oklch(0.92 0.03 90);
+  /* Cream/White for readability */
+  --primary-foreground: oklch(0.12 0.02 280);
+  --secondary: oklch(0.20 0.05 280);
+  --secondary-foreground: oklch(0.7 0.25 330);
+  /* Neon Pink Text */
+  --muted: oklch(0.2 0.02 280);
+  --muted-foreground: oklch(0.7 0.02 280);
+  --accent: oklch(0.65 0.25 330);
+  /* Neon Pink */
+  --accent-foreground: oklch(0.98 0.01 280);
+  --destructive: oklch(0.5 0.2 25);
+  --destructive-foreground: oklch(0.98 0.01 280);
+  --border: oklch(0.3 0.05 280);
+  --input: oklch(0.2 0.02 280);
+  --ring: oklch(0.65 0.25 330);
+  --teal-lane: oklch(0.6 0.2 240);
+  /* Neon Blue */
+  --rug-primary: oklch(0.48 0.15 25);
+  /* Keep some rug authenticity */
+  --rug-accent: oklch(0.68 0.12 45);
+  --rug-dark: oklch(0.35 0.08 135);
+  --cream: oklch(0.95 0.05 90);
+  --dark-wood: oklch(0.15 0.03 85);
+  /* The "Dude" grounding */
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.12 0.02 280);
+  --sidebar-foreground: oklch(0.98 0.01 280);
+  --sidebar-primary: oklch(0.65 0.25 330);
+  --sidebar-primary-foreground: oklch(0.98 0.01 280);
+  --sidebar-accent: oklch(0.2 0.05 280);
+  --sidebar-accent-foreground: oklch(0.98 0.01 280);
+  --sidebar-border: oklch(0.3 0.05 280);
+  --sidebar-ring: oklch(0.65 0.25 330);
+}
+
+.dark {
+  /* Same dark base */
+  --background: oklch(0.10 0.02 280);
+  --foreground: oklch(0.98 0.01 280);
+  --card: oklch(0.12 0.02 280);
+  --card-foreground: oklch(0.98 0.01 280);
+  --popover: oklch(0.10 0.02 280);
+  --popover-foreground: oklch(0.98 0.01 280);
+  --primary: oklch(0.92 0.03 90);
+  --primary-foreground: oklch(0.10 0.02 280);
+  --secondary: oklch(0.20 0.05 280);
+  --secondary-foreground: oklch(0.7 0.25 330);
+  --muted: oklch(0.2 0.02 280);
+  --muted-foreground: oklch(0.7 0.02 280);
+  --accent: oklch(0.65 0.25 330);
+  --accent-foreground: oklch(0.98 0.01 280);
+  --destructive: oklch(0.5 0.2 25);
+  --destructive-foreground: oklch(0.98 0.01 280);
+  --border: oklch(0.3 0.05 280);
+  --input: oklch(0.2 0.02 280);
+  --ring: oklch(0.65 0.25 330);
+}
+
+/* Neon Text Utilities */
+.text-neon-pink {
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+}
+
+.text-neon-blue {
+  color: var(--teal-lane);
+  text-shadow: 0 0 10px var(--teal-lane), 0 0 20px var(--teal-lane);
+}
+
+.neon-border {
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent), inset 0 0 10px var(--accent);
+}
+
+/* Gradient Backgrounds */
+.bg-neon-gradient {
+  background: linear-gradient(135deg, var(--background) 0%, oklch(0.2 0.1 280) 100%);
 }
 
 @theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-teal-lane: var(--teal-lane);
+  --color-rug-primary: var(--rug-primary);
+  --color-rug-accent: var(--rug-accent);
+  --color-rug-dark: var(--rug-dark);
+  --color-cream: var(--cream);
+  --color-dark-wood: var(--dark-wood);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Enhanced Persian rug pattern - more visible and detailed */
+.rug-pattern {
+  background-image: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 15px,
+      oklch(from var(--rug-primary) l c h / 0.25) 15px,
+      oklch(from var(--rug-primary) l c h / 0.25) 18px),
+    repeating-linear-gradient(90deg,
+      transparent,
+      transparent 15px,
+      oklch(from var(--rug-accent) l c h / 0.2) 15px,
+      oklch(from var(--rug-accent) l c h / 0.2) 18px),
+    repeating-linear-gradient(45deg,
+      oklch(from var(--rug-dark) l c h / 0.15) 0px,
+      oklch(from var(--rug-dark) l c h / 0.15) 10px,
+      transparent 10px,
+      transparent 20px),
+    repeating-linear-gradient(-45deg,
+      oklch(from var(--rug-accent) l c h / 0.15) 0px,
+      oklch(from var(--rug-accent) l c h / 0.15) 10px,
+      transparent 10px,
+      transparent 20px);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+}
+
+/* Neon glow effect for teal accents */
+.neon-glow {
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+}
+
+/* Simplified bowling lane wood texture with dark wood tones */
+.bowling-texture {
+  background: linear-gradient(90deg,
+      oklch(from var(--dark-wood) l c h) 0%,
+      oklch(from var(--dark-wood) calc(l + 0.05) c h) 50%,
+      oklch(from var(--dark-wood) l c h) 100%);
+  background-size: 40px 100%;
+}
+
+/* Rug divider for sections */
+.rug-divider {
+  height: 8px;
+  background: linear-gradient(90deg,
+      var(--rug-primary) 0%,
+      var(--rug-accent) 25%,
+      var(--rug-dark) 50%,
+      var(--rug-accent) 75%,
+      var(--rug-primary) 100%);
 }
