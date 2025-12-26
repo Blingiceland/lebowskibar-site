@@ -1,14 +1,6 @@
 "use client"
 
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { IceCream } from "lucide-react"
 
 const shakes = [
@@ -23,57 +15,58 @@ const shakes = [
 
 export function MilkshakeManager() {
     return (
-        <section id="milkshakes" className="w-full flex flex-col items-center py-16 bg-background relative z-20 mb-10">
-            <div className="text-center mb-10">
-                <h2 className="text-5xl md:text-7xl font-[family-name:var(--font-bebas)] text-accent tracking-wider mb-4 neon-glow">
-                    The Milkshakes
-                </h2>
-                <p className="text-xl text-cream/80 max-w-2xl mx-auto">
-                    "Good things only get better."
-                </p>
-            </div>
+        <section id="milkshakes" className="py-20 bg-background relative overflow-hidden">
+            {/* Rug Pattern Background opacity variation */}
+            <div className="absolute inset-0 z-0 opacity-5 rug-pattern pointer-events-none" />
 
-            <Dialog>
-                <DialogTrigger asChild>
-                    <Button
-                        size="lg"
-                        className="group relative overflow-hidden bg-neon-pink hover:bg-neon-pink/90 text-white border-2 border-white/20 shadow-[0_0_20px_rgba(255,20,147,0.5)] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,20,147,0.8)] px-8 py-8 h-auto"
-                    >
-                        <div className="flex flex-col items-center gap-2">
-                            <IceCream className="w-8 h-8 group-hover:animate-bounce" />
-                            <span className="font-[family-name:var(--font-bebas)] text-3xl tracking-wide">MILKSHAKES</span>
-                            <span className="text-xs font-bold bg-black/20 px-2 py-1 rounded-full">CLICK FOR MENU</span>
-                        </div>
-                    </Button>
-                </DialogTrigger>
-                <DialogContent className="bg-secondary border-4 border-neon-pink text-cream max-w-xl max-h-[90vh] overflow-y-auto">
-                    <DialogHeader className="text-center">
-                        <DialogTitle className="text-5xl font-[family-name:var(--font-bebas)] text-neon-pink tracking-wider mb-2">
-                            Milk Shakes
-                        </DialogTitle>
-                        <DialogDescription className="text-cream/80 text-lg italic">
-                            “Good things only get better.” – ME
-                        </DialogDescription>
-                    </DialogHeader>
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="text-center mb-16">
+                    <h2 className="text-5xl md:text-7xl font-[family-name:var(--font-bebas)] text-accent tracking-wider mb-4 neon-glow">
+                        The Milkshakes
+                    </h2>
+                    <p className="text-xl text-cream/80 max-w-2xl mx-auto">
+                        "Good things only get better."
+                    </p>
+                </div>
 
-                    <div className="space-y-6 mt-4">
-                        {shakes.map((shake) => (
-                            <div key={shake.name} className="flex flex-col border-b border-white/10 pb-4 last:border-0">
-                                <div className="flex justify-between items-baseline mb-1">
-                                    <h4 className="font-bold text-xl text-cream">{shake.name}</h4>
-                                    <span className="font-[family-name:var(--font-bebas)] text-2xl text-neon-pink">{shake.price}</span>
+                <div className="max-w-4xl mx-auto">
+                    <Card className="bg-secondary/80 border-4 border-neon-pink relative overflow-hidden backdrop-blur-md">
+                        <div className="absolute inset-0 z-0 bg-dark-wood/60" />
+
+                        <div className="relative z-10">
+                            <CardHeader className="bg-black/40 text-cream">
+                                <div className="flex items-center gap-3">
+                                    <div className="p-3 bg-neon-pink rounded-full text-white">
+                                        <IceCream className="w-8 h-8" />
+                                    </div>
+                                    <div>
+                                        <CardTitle className="text-3xl font-[family-name:var(--font-bebas)] tracking-wide">
+                                            Milkshake Menu
+                                        </CardTitle>
+                                        <CardDescription className="text-cream/80 italic">"FIVE DOLLAR SHAKE?" (Well, almost)</CardDescription>
+                                    </div>
                                 </div>
-                                <p className="text-cream/70 mb-2">{shake.description}</p>
-                                {shake.name !== "SHAKE FOR SHORTY" && (
-                                    <p className="text-xs font-bold text-neon-green bg-black/30 p-2 rounded inline-block w-fit">
-                                        ✨ Boogie your shake (add alcohol) for +900ISK
-                                    </p>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                </DialogContent>
-            </Dialog>
+                            </CardHeader>
+                            <CardContent className="p-6 grid gap-6 md:grid-cols-2">
+                                {shakes.map((shake) => (
+                                    <div key={shake.name} className="border-b border-white/10 pb-4 last:border-0">
+                                        <div className="flex justify-between items-start mb-1">
+                                            <h3 className="font-bold text-cream text-lg">{shake.name}</h3>
+                                            <span className="font-[family-name:var(--font-bebas)] text-neon-pink text-xl">{shake.price}</span>
+                                        </div>
+                                        <p className="text-sm text-cream/70 mb-2">{shake.description}</p>
+                                        {shake.name !== "SHAKE FOR SHORTY" && (
+                                            <p className="text-xs font-bold text-neon-green bg-black/30 p-2 rounded inline-block w-fit">
+                                                ✨ Boogie your shake (add alcohol) +900ISK
+                                            </p>
+                                        )}
+                                    </div>
+                                ))}
+                            </CardContent>
+                        </div>
+                    </Card>
+                </div>
+            </div>
         </section>
     )
 }
