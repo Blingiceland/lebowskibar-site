@@ -20,15 +20,21 @@ export function Header() {
                         <a href="/" className="flex items-baseline gap-2 hover:scale-105 transition-transform">
                             <h1 className="text-4xl md:text-6xl font-[family-name:var(--font-bebas)] tracking-wider">
                                 <span className="text-neon-pink drop-shadow-[0_0_10px_rgba(255,20,147,0.8)]">LEBOWSKI</span>
-                                <span className="text-neon-blue drop-shadow-[0_0_10px_rgba(0,255,255,0.8)] ml-2">BAR</span>
+                                <span className="text-neon-green drop-shadow-[0_0_10px_rgba(0,255,0,0.8)] ml-2">BAR</span>
                             </h1>
                         </a>
                     </div>
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center gap-6">
-                        <a href="#menu" className="text-cream hover:text-accent transition-colors font-medium">
-                            Menu
+                        <a href="#drinks" className="text-cream hover:text-accent transition-colors font-medium">
+                            Drinks
+                        </a>
+                        <a href="#food" className="text-cream hover:text-accent transition-colors font-medium">
+                            Food
+                        </a>
+                        <a href="#milkshakes" className="text-cream hover:text-accent transition-colors font-medium">
+                            Milkshakes
                         </a>
                         <a href="#events" className="text-cream hover:text-accent transition-colors font-medium">
                             Events
@@ -36,18 +42,13 @@ export function Header() {
                         <a href="#sports" className="text-cream hover:text-accent transition-colors font-medium">
                             Sports
                         </a>
-                        <a href="#menu" className="text-cream hover:text-accent transition-colors font-medium">
-                            Menu
-                        </a>
-                        <a href="#contact" className="text-cream hover:text-accent transition-colors font-medium">
-                            Contact
-                        </a>
+
                         <div className="flex items-center gap-2">
                             <PartyBookingDialog>
                                 <Button
                                     variant="outline"
                                     size="lg"
-                                    className="border-2 border-teal-lane text-teal-lane hover:bg-teal-lane hover:text-cream font-[family-name:var(--font-bebas)] text-xl tracking-wide bg-transparent"
+                                    className="border-2 border-neon-green text-neon-green hover:bg-neon-green hover:text-cream font-[family-name:var(--font-bebas)] text-xl tracking-wide bg-transparent"
                                 >
                                     Book a Party
                                 </Button>
@@ -69,7 +70,7 @@ export function Header() {
                             <Button
                                 size="sm"
                                 variant="outline"
-                                className="border-teal-lane text-teal-lane hover:bg-teal-lane hover:text-cream font-[family-name:var(--font-bebas)] tracking-wide bg-transparent"
+                                className="border-neon-green text-neon-green hover:bg-neon-green hover:text-cream font-[family-name:var(--font-bebas)] tracking-wide bg-transparent"
                             >
                                 Party
                             </Button>
@@ -98,11 +99,25 @@ export function Header() {
                     <nav className="md:hidden py-4 border-t border-cream/20">
                         <div className="flex flex-col gap-3">
                             <a
-                                href="#menu"
+                                href="#drinks"
                                 className="text-cream hover:text-accent transition-colors font-medium py-2"
                                 onClick={() => setIsMenuOpen(false)}
                             >
-                                Menu
+                                Drinks
+                            </a>
+                            <a
+                                href="#food"
+                                className="text-cream hover:text-accent transition-colors font-medium py-2"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Food
+                            </a>
+                            <a
+                                href="#milkshakes"
+                                className="text-cream hover:text-accent transition-colors font-medium py-2"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Milkshakes
                             </a>
                             <a
                                 href="#events"
@@ -111,13 +126,7 @@ export function Header() {
                             >
                                 Events
                             </a>
-                            <a
-                                href="#contact"
-                                className="text-cream hover:text-accent transition-colors font-medium py-2"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Contact
-                            </a>
+
                         </div>
                     </nav>
                 )}

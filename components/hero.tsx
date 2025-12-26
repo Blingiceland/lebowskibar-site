@@ -3,8 +3,47 @@
 import { Button } from "@/components/ui/button"
 import { BookingDialog } from "@/components/booking-dialog"
 import { ArrowDown } from "lucide-react"
+import { useState, useEffect } from "react"
+
+const QUOTES = [
+  "The Dude abides",
+  "Her life is in your hands, Dude",
+  "This aggression will not stand, man",
+  "That rug really tied the room together",
+  "Yeah, well, you know, that’s just, like, your opinion, man",
+  "Obviously you’re not a golfer",
+  "Careful man, there’s a beverage here!",
+  "Fuck it, Dude. Let’s go bowling",
+  "Shut the fuck up, Donny!",
+  "Smokey, this is not ‘Nam. This is bowling. There are rules",
+  "You want a toe? I can get ya a toe",
+  "Nihilists! Fuck me… at least it’s an ethos",
+  "Saturday, Donny, is Shabbos, the Jewish day of rest",
+  "Donny was a good bowler and a good man.\nYou’re entering a world of pain.",
+  "Forget it, Donny, you’re out of your element!",
+  "Is this your homework, Larry?",
+  "Life does not start and stop at your convenience, you miserable piece of shit!",
+  "I’m the Dude, so that’s what you call me",
+  "Do you have to use so many cuss words?",
+  "Sometimes you eat the bear, and sometimes, well, he eats you."
+]
 
 export function Hero() {
+  const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0)
+  const [isAnimating, setIsAnimating] = useState(false)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true)
+      setTimeout(() => {
+        setCurrentQuoteIndex((prev) => (prev + 1) % QUOTES.length)
+        setIsAnimating(false)
+      }, 500) // Wait for fade out
+    }, 6000)
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -19,28 +58,28 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className="max-w-4xl mx-auto space-y-6">
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-[family-name:var(--font-bebas)] text-cream tracking-wider leading-none drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
-            THE DUDE ABIDES
-            <br />
-            <span className="text-neon-blue">IN REYKJAVIK</span>
-          </h1>
+        <div className="max-w-5xl mx-auto space-y-12">
 
-          <p className="text-xl md:text-3xl text-cream/90 font-medium max-w-2xl mx-auto leading-relaxed">
-            {"Sometimes you eat the bar, and sometimes, well..."}
-            <br />
-            <span className="text-neon-pink italic">{"the bar eats you"}</span>
+          <div className="min-h-[200px] flex items-center justify-center">
+            <h1
+              className={`text-4xl sm:text-5xl md:text-7xl font-[family-name:var(--font-bebas)] text-cream tracking-wider leading-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.5)] transition-opacity duration-500 transform ${isAnimating ? "opacity-0 scale-95" : "opacity-100 scale-100"
+                }`}
+            >
+              <span className="text-neon-pink">"</span>
+              {QUOTES[currentQuoteIndex]}
+              <span className="text-neon-pink">"</span>
+            </h1>
+          </div>
+
+          <p className="text-lg md:text-2xl text-cream/80 max-w-xl mx-auto font-light tracking-wide">
+            Burgers, Shakes, White Russians &<br />the rug that really ties Reykjavik together
           </p>
 
-          <p className="text-lg md:text-xl text-cream/80 max-w-xl mx-auto">
-            Burgers, Shakes, White Russians & the rug that really ties Reykjavik together
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
             <BookingDialog>
               <Button
                 size="lg"
-                className="bg-accent hover:bg-accent/90 text-cream font-[family-name:var(--font-bebas)] text-2xl tracking-wide px-8 py-6 h-auto"
+                className="bg-accent hover:bg-accent/90 text-cream font-[family-name:var(--font-bebas)] text-2xl tracking-wide px-10 py-8 h-auto w-full sm:w-auto shadow-[0_0_20px_rgba(255,107,107,0.4)] hover:shadow-[0_0_30px_rgba(255,107,107,0.6)] transition-all duration-300"
               >
                 Reserve Your Lane
               </Button>
@@ -48,10 +87,10 @@ export function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-cream text-cream hover:bg-cream hover:text-secondary font-[family-name:var(--font-bebas)] text-2xl tracking-wide px-8 py-6 h-auto bg-transparent"
+              className="border-2 border-cream text-cream hover:bg-cream hover:text-secondary font-[family-name:var(--font-bebas)] text-2xl tracking-wide px-10 py-8 h-auto w-full sm:w-auto bg-transparent hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300"
               onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}
             >
-              {"What's"} On The Menu
+              See The Menu
             </Button>
           </div>
         </div>

@@ -29,7 +29,7 @@ export function UpcomingEvents() {
 
                 <div className="grid gap-8 md:grid-cols-2 max-w-6xl mx-auto">
                     {/* DJ Section */}
-                    <Card className="bg-secondary border-4 border-teal-lane relative overflow-hidden">
+                    <Card className="bg-secondary border-4 border-neon-green relative overflow-hidden">
                         <div className="absolute inset-0 z-0">
                             <img src="/Images/4l.jpg" className="w-full h-full object-cover opacity-40" alt="DJ night" />
                             <div className="absolute inset-0 bg-dark-wood/60" />
@@ -37,7 +37,7 @@ export function UpcomingEvents() {
                         <div className="relative z-10">
                             <CardHeader className="bg-dark-wood/50">
                                 <div className="flex items-center gap-3">
-                                    <Disc3 className="w-8 h-8 text-teal-lane" />
+                                    <Disc3 className="w-8 h-8 text-neon-green" />
                                     <div>
                                         <CardTitle className="text-3xl font-[family-name:var(--font-bebas)] text-cream tracking-wide">
                                             DJ Lineup
@@ -55,11 +55,11 @@ export function UpcomingEvents() {
                                         >
                                             <div className="flex flex-wrap items-center gap-2 mb-1">
                                                 <span className="font-[family-name:var(--font-bebas)] text-xl text-cream">{dj.day}</span>
-                                                <span className="text-teal-lane">•</span>
+                                                <span className="text-neon-green">•</span>
                                                 <span className="text-cream/70">{dj.time}</span>
                                             </div>
                                             <p className="text-cream font-bold text-lg mb-1">{dj.dj}</p>
-                                            <p className="text-teal-lane text-sm">{dj.genre}</p>
+                                            <p className="text-neon-green text-sm">{dj.genre}</p>
                                         </div>
                                     ))}
                                 </div>

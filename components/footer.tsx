@@ -25,7 +25,7 @@ export function Footer() {
                                 </div>
                             </div>
                             <div className="flex items-start gap-3 text-cream/90">
-                                <MapPin className="w-5 h-5 text-teal-lane flex-shrink-0 mt-1" />
+                                <MapPin className="w-5 h-5 text-neon-green flex-shrink-0 mt-1" />
                                 <div>
                                     <p className="font-bold">Visit us</p>
                                     <p>Austurstræti 8</p>
@@ -86,7 +86,7 @@ export function Footer() {
                                     href="https://instagram.com"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="w-12 h-12 bg-teal-lane hover:bg-teal-lane/90 rounded-lg flex items-center justify-center transition-colors"
+                                    className="w-12 h-12 bg-neon-green hover:bg-neon-green/90 rounded-lg flex items-center justify-center transition-colors"
                                 >
                                     <Instagram className="w-6 h-6 text-cream" />
                                 </a>
@@ -107,7 +107,7 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="h-3 bg-gradient-to-r from-accent via-teal-lane to-accent" />
+                <div className="h-3 bg-gradient-to-r from-accent via-neon-green to-accent" />
             </footer>
         </>
     )

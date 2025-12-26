@@ -1,6 +1,8 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
-import { Menu } from "@/components/menu"
+import { DrinksMenu } from "@/components/drinks-menu"
+import { FoodMenu } from "@/components/food-menu"
+import { MilkshakeManager } from "@/components/milkshake-manager"
 import { UpcomingEvents } from "@/components/upcoming-events"
 import { SportsSection } from "@/components/sports-section"
 import { BurgerOfMonth } from "@/components/burger-of-month"
@@ -14,7 +16,9 @@ export default function Home() {
       <UpcomingEvents />
       <SportsSection />
       <BurgerOfMonth />
-      <Menu />
+      <DrinksMenu />
+      <FoodMenu />
+      <MilkshakeManager />
       <Footer />
     </main>
   )

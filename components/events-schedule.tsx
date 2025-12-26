@@ -49,7 +49,7 @@ export function EventsSchedule() {
                         </TabsTrigger>
                         <TabsTrigger
                             value="djs"
-                            className="data-[state=active]:bg-teal-lane data-[state=active]:text-cream text-cream/70 font-[family-name:var(--font-bebas)] text-xl py-3"
+                            className="data-[state=active]:bg-neon-green data-[state=active]:text-cream text-cream/70 font-[family-name:var(--font-bebas)] text-xl py-3"
                         >
                             <Disc3 className="w-5 h-5 mr-2" />
                             DJs
@@ -104,7 +104,7 @@ export function EventsSchedule() {
                     </TabsContent>
 
                     <TabsContent value="djs" className="mt-8">
-                        <Card className="bg-secondary border-4 border-teal-lane relative overflow-hidden">
+                        <Card className="bg-secondary border-4 border-neon-green relative overflow-hidden">
                             <div className="absolute inset-0 z-0">
                                 <img src="/Images/4l.jpg" className="w-full h-full object-cover opacity-40" alt="DJ night" />
                                 <div className="absolute inset-0 bg-dark-wood/60" />
@@ -121,17 +121,17 @@ export function EventsSchedule() {
                                         {djLineup.map((dj, index) => (
                                             <div
                                                 key={index}
-                                                className="flex items-start gap-4 p-4 bg-dark-wood/30 rounded-lg border border-cream/20 hover:border-teal-lane transition-colors"
+                                                className="flex items-start gap-4 p-4 bg-dark-wood/30 rounded-lg border border-cream/20 hover:border-neon-green transition-colors"
                                             >
-                                                <Disc3 className="w-6 h-6 text-teal-lane flex-shrink-0 mt-1" />
+                                                <Disc3 className="w-6 h-6 text-neon-green flex-shrink-0 mt-1" />
                                                 <div className="flex-1">
                                                     <div className="flex flex-wrap items-center gap-2 mb-1">
                                                         <span className="font-[family-name:var(--font-bebas)] text-xl text-cream">{dj.day}</span>
-                                                        <span className="text-teal-lane">•</span>
+                                                        <span className="text-neon-green">•</span>
                                                         <span className="text-cream/70">{dj.time}</span>
                                                     </div>
                                                     <p className="text-cream font-bold text-lg mb-1">{dj.dj}</p>
-                                                    <p className="text-teal-lane text-sm">{dj.genre}</p>
+                                                    <p className="text-neon-green text-sm">{dj.genre}</p>
                                                 </div>
                                             </div>
                                         ))}

@@ -31,7 +31,7 @@ export function BurgerOfMonth() {
                                 <Star className="w-5 h-5 fill-accent" />
                                 <Star className="w-5 h-5 fill-accent" />
                             </div>
-                            <h2 className="text-4xl md:text-5xl font-[family-name:var(--font-bebas)] mb-4 tracking-wide text-teal-lane">
+                            <h2 className="text-4xl md:text-5xl font-[family-name:var(--font-bebas)] mb-4 tracking-wide text-neon-green">
                                 The "Donny" Burger
                             </h2>
                             <p className="text-lg text-cream/80 mb-6 leading-relaxed">
